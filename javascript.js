@@ -14,7 +14,19 @@ let roshambo = getComputerChoice();
 console.log(roshambo);
 
 function getHumanChoice() {
-    let humanHand = prompt('Rock, paper, or scissors?') 
+    let humanHand = prompt('Rock, paper, or scissors?').toLowerCase(); 
+
+    if (humanHand === "rock") {
+        return "Rock";
+    } else if (humanHand === "paper") {
+        return "Paper"; 
+    } else if (humanHand === "scissrors") {
+        return "Scissors";
+    } else {
+        return "Uh-uh-uh, you didn't say one of the right words!"
+    }
 }
 
-getHumanChoice();
+let humanHand = getHumanChoice();
+
+console.log(humanHand);
