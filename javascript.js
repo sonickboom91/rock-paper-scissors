@@ -9,24 +9,53 @@ function getComputerChoice() {
         return "Scissors";
 }
 
-let roshambo = getComputerChoice();
-
-console.log(roshambo);
-
 function getHumanChoice() {
-    let humanHand = prompt('Rock, paper, or scissors?').toLowerCase(); 
+    let input = prompt('Rock, paper, or scissors?').toLowerCase();
 
-    if (humanHand === "rock") {
-        return "Rock";
-    } else if (humanHand === "paper") {
-        return "Paper"; 
-    } else if (humanHand === "scissrors") {
-        return "Scissors";
+    if (input === "rock") {
+    return "Rock";
+    } else if (input === "paper") {
+    return "Paper"; 
+    } else if (input === "scissors") {
+    return "Scissors";
     } else {
-        return "Uh-uh-uh, you didn't say one of the right words!"
+    return "Uh-uh-uh, you didn't type one of the right words!"
     }
 }
 
-let humanHand = getHumanChoice();
+let humanScore = 0;
+let computerScore = 0;
 
-console.log(humanHand);
+function playRound(humanChoice, computerChoice) {
+
+    if (humanSelection === 'Rock' && computerSelection === 'Paper') {
+        computerScore++;
+        return "You lose!";
+    } else if (humanSelection === 'Rock' && computerSelection === 'Scissors') {
+        humanScore++;
+        return "You win!"; 
+    } else if (humanSelection === 'Paper' && computerSelection === 'Rock') {
+        humanScore++;
+        return "You win!"; 
+    } else if (humanSelection === 'Paper' && computerSelection === 'Scissors') {
+        computerScore++;
+        return "You lose!"; 
+    } else if (humanSelection === 'Scissors' && computerChoice === 'Rock') {
+        computerScore++;
+        return "You lose!"; 
+    } else if (humanSelection === 'Scissors' && computerChoice === 'Paper') {
+        humanScore++;
+        return "You win!"; 
+    } else {
+        return "Draw!";
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+console.log(humanScore, computerScore);
+
+console.log(humanSelection, computerSelection);
