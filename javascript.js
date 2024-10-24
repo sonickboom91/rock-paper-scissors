@@ -23,9 +23,6 @@ function getHumanChoice() {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
@@ -56,16 +53,19 @@ function playGame() {
     }
 
     for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
         console.log(humanSelection, computerSelection);
         console.log(playRound(humanSelection, computerSelection));
         console.log(humanScore, computerScore);
-        getHumanChoice();
     }
 
     if (humanScore > computerScore) {
         console.log("You win the game!")
     } else if (humanScore < computerScore) {
         console.log("The computer wins the game!")
+    } else {
+        console.log("The game ends in a draw! Try again!")
     }
 }
 
