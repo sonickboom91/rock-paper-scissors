@@ -15,7 +15,7 @@ let gameOver = false;
 
 const message = document.querySelector('.message');
 const score = document.querySelector('.score');
-score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
 
 const rockButton = document.querySelector('.rock');
 
@@ -28,42 +28,42 @@ rockButton.addEventListener('click', () => {
 
     if (computerChoice === "Rock" && (humanScore < 5 && computerScore < 5)) {
         message.textContent = "Draw!";
-        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
     } else if (computerChoice === 'Paper' && (humanScore < 5 && computerScore < 5)) {
         computerScore++;
         if (humanScore === 5) {
             message.textContent = "Congrats, you win the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else if (computerScore === 5) {
             message.textContent = "Sorry, the computer wins the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else {
             message.textContent = 'Computer wins!';
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
         }
     } else if (computerChoice === 'Scissors' && (humanScore < 5 && computerScore < 5)) {
         humanScore++;
         if (humanScore === 5) {
             message.textContent = "Congrats, you win the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else if (computerScore === 5) {
             message.textContent = "Sorry, the computer wins the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else {
             message.textContent = 'You win!';
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
         }
     } else {
         message.textContent = '';
-        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
     }
 });
 
@@ -81,39 +81,39 @@ paperButton.addEventListener('click', () => {
         if (humanScore === 5) {
             message.textContent = "Congrats, you win the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else if (computerScore === 5) {
             message.textContent = "Sorry, the computer wins the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else {
             message.textContent = "You win!";
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
         }
     } else if (computerChoice === 'Paper' && (humanScore < 5 && computerScore < 5)) {
         message.textContent = 'Draw!';
-        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
     } else if (computerChoice === 'Scissors' && (humanScore < 5 && computerScore < 5)) {
         computerScore++;
         if (humanScore === 5) {
             message.textContent = "Congrats, you win the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else if (computerScore === 5) {
             message.textContent = "Sorry, the computer wins the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else {
             message.textContent = 'Computer wins!';
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
         }
     } else {
         message.textContent = '';
-        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
     }
 });
 
@@ -131,38 +131,38 @@ scissorsButton.addEventListener('click', () => {
         if (humanScore === 5) {
             message.textContent = "Congrats, you win the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else if (computerScore === 5) {
             message.textContent = "Sorry, the computer wins the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else {
             message.textContent = "Computer wins!";
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
         }
     } else if (computerChoice === 'Paper' && (humanScore < 5 && computerScore < 5)) {
         humanScore++;
         if (humanScore === 5) {
             message.textContent = "Congrats, you win the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else if (computerScore === 5) {
             message.textContent = "Sorry, the computer wins the game!";
             message.classList.add('bold-message');
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
             gameOver = true;
         } else {
             message.textContent = 'You win!';
-            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
         }
     } else if (computerChoice === 'Scissors' && (humanScore < 5 && computerScore < 5)) {
         message.textContent = 'Draw!';
-        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
     } else {
         message.textContent = ''
-        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        score.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
     }
 });
