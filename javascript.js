@@ -9,64 +9,160 @@ function getComputerChoice() {
         return "Scissors";
 }
 
-function getHumanChoice() {
-    let input = prompt('Rock, paper, or scissors?').toLowerCase();
+let humanScore = 0;
+let computerScore = 0;
+let gameOver = false;
 
-    if (input === "rock") {
-    return "Rock";
-    } else if (input === "paper") {
-    return "Paper"; 
-    } else if (input === "scissors") {
-    return "Scissors";
-    } else {
-    return "Uh-uh-uh, you didn't type one of the right words!"
+const message = document.querySelector('.message');
+const score = document.querySelector('.score');
+score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+
+const rockButton = document.querySelector('.rock');
+
+rockButton.addEventListener('click', () => {
+    const computerChoice = getComputerChoice();
+
+    if (gameOver) {
+        return;
     }
-}
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-
-    function playRound(humanSelection, computerSelection) {
-
-        if (humanSelection === 'Rock' && computerSelection === 'Paper') {
-            computerScore++;
-            return "You lose!";
-        } else if (humanSelection === 'Rock' && computerSelection === 'Scissors') {
-            humanScore++;
-            return "You win!"; 
-        } else if (humanSelection === 'Paper' && computerSelection === 'Rock') {
-            humanScore++;
-            return "You win!"; 
-        } else if (humanSelection === 'Paper' && computerSelection === 'Scissors') {
-            computerScore++;
-            return "You lose!"; 
-        } else if (humanSelection === 'Scissors' && computerSelection === 'Rock') {
-            computerScore++;
-            return "You lose!"; 
-        } else if (humanSelection === 'Scissors' && computerSelection === 'Paper') {
-            humanScore++;
-            return "You win!"; 
+    if (computerChoice === "Rock" && (humanScore < 5 && computerScore < 5)) {
+        message.textContent = "Draw!";
+        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+    } else if (computerChoice === 'Paper' && (humanScore < 5 && computerScore < 5)) {
+        computerScore++;
+        if (humanScore === 5) {
+            message.textContent = "Congrats, you win the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else if (computerScore === 5) {
+            message.textContent = "Sorry, the computer wins the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
         } else {
-            return "Draw!";
+            message.textContent = 'Computer wins!';
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
         }
-    }
-
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log(humanSelection, computerSelection);
-        console.log(playRound(humanSelection, computerSelection));
-        console.log(humanScore, computerScore);
-    }
-
-    if (humanScore > computerScore) {
-        console.log("You win the game!")
-    } else if (humanScore < computerScore) {
-        console.log("The computer wins the game!")
+    } else if (computerChoice === 'Scissors' && (humanScore < 5 && computerScore < 5)) {
+        humanScore++;
+        if (humanScore === 5) {
+            message.textContent = "Congrats, you win the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else if (computerScore === 5) {
+            message.textContent = "Sorry, the computer wins the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else {
+            message.textContent = 'You win!';
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        }
     } else {
-        console.log("The game ends in a draw! Try again!")
+        message.textContent = '';
+        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
     }
-}
+});
 
-playGame();
+const paperButton = document.querySelector('.paper');
+
+paperButton.addEventListener('click', () => {
+    const computerChoice = getComputerChoice();
+
+    if (gameOver) {
+        return;
+    }
+
+    if (computerChoice === "Rock" && (humanScore < 5 && computerScore < 5)) {
+        humanScore++;
+        if (humanScore === 5) {
+            message.textContent = "Congrats, you win the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else if (computerScore === 5) {
+            message.textContent = "Sorry, the computer wins the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else {
+            message.textContent = "You win!";
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        }
+    } else if (computerChoice === 'Paper' && (humanScore < 5 && computerScore < 5)) {
+        message.textContent = 'Draw!';
+        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+    } else if (computerChoice === 'Scissors' && (humanScore < 5 && computerScore < 5)) {
+        computerScore++;
+        if (humanScore === 5) {
+            message.textContent = "Congrats, you win the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else if (computerScore === 5) {
+            message.textContent = "Sorry, the computer wins the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else {
+            message.textContent = 'Computer wins!';
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        }
+    } else {
+        message.textContent = '';
+        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+    }
+});
+
+const scissorsButton = document.querySelector('.scissors');
+
+scissorsButton.addEventListener('click', () => {
+    const computerChoice = getComputerChoice();
+
+    if (gameOver) {
+        return;
+    }
+
+    if (computerChoice === "Rock" && (humanScore < 5 && computerScore < 5)) {
+        computerScore++;
+        if (humanScore === 5) {
+            message.textContent = "Congrats, you win the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else if (computerScore === 5) {
+            message.textContent = "Sorry, the computer wins the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else {
+            message.textContent = "Computer wins!";
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        }
+    } else if (computerChoice === 'Paper' && (humanScore < 5 && computerScore < 5)) {
+        humanScore++;
+        if (humanScore === 5) {
+            message.textContent = "Congrats, you win the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else if (computerScore === 5) {
+            message.textContent = "Sorry, the computer wins the game!";
+            message.classList.add('bold-message');
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+            gameOver = true;
+        } else {
+            message.textContent = 'You win!';
+            score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+        }
+    } else if (computerChoice === 'Scissors' && (humanScore < 5 && computerScore < 5)) {
+        message.textContent = 'Draw!';
+        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+    } else {
+        message.textContent = ''
+        score.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+    }
+});
